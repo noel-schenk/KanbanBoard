@@ -1,0 +1,57 @@
+$kb_category_title_font_color: #707090;
+$kb_category_inner_width: 260px;
+*{
+    word-break: break-word;
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: 100%;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+*:not(kanban-card){
+    margin: 0;
+    padding: 0;
+}
+:host-context([category='0']){
+    &:before{
+        background: linear-gradient(135deg, #FF9784 0%, #FFB74D 100%);
+    }
+}
+:host-context([category='1']){
+    &:before{
+        background: linear-gradient(134deg, #9EA7FC 0%, #0B7BD5 100%);
+    }
+}
+:host-context([category='2']){
+    &:before{
+        background: linear-gradient(-44deg, #81D5EE 0%, #7ED492 100%);
+    }
+}
+:host{
+    margin: 0 36px;
+    width: 280px;
+    box-shadow: 0 0 10px 0 #D2D7E0;
+    border-radius: 5px;
+    display: table;
+    overflow: hidden;
+    &:before{
+        content: '';
+        display: block;
+        height: 4px;
+    }
+    h2{
+        width: $kb_category_inner_width;
+        padding: 18px 0;
+        font-size: 20px;
+        color: $kb_category_title_font_color;
+        margin: 0 auto;
+    }
+    > div{
+        padding: 0 0 50px 0;
+        > kanban-card{
+            margin: 0 auto 10px auto;
+        }
+    }
+}

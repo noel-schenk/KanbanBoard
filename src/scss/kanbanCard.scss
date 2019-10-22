@@ -1,0 +1,154 @@
+$kb_card_bg:                    #FFF;
+$kb_card_label_low_bg:          linear-gradient(134deg, #9EA7FC 0%, #0B7BD5 100%);
+$kb_card_label_med_bg:          linear-gradient(-44deg, #81D5EE 0%, #7ED492 100%);
+$kb_card_label_high_bg:         linear-gradient(133deg, #C781FF 0%, #E57373 100%);
+$kb_card_label_font_color:      #FFF;
+$kb_card_desc_font_color:       #707090;
+$kb_card_footer_font_color:#9898AE;
+$kb_card_footer_icon_color:#CCCCD7;
+$kb_card_placeholder_background_color: #EAEAEC;
+$kb_card_dragging_background_color: #DBDCE3;
+$kb_board_bg:   #F4F4F4;
+*{
+    word-break: break-word;
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: 100%;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin: 0;
+    padding: 0;
+}
+:host-context([type='placeholder']){
+    background: repeating-linear-gradient(-45deg, $kb_card_placeholder_background_color,$kb_card_placeholder_background_color 6px, $kb_board_bg 6px, $kb_board_bg 12px );
+    border: 1px solid $kb_card_placeholder_background_color;
+}
+:host-context([type='dragging']){
+    border: 1px solid $kb_card_dragging_background_color;
+}
+:host{
+    display: block;
+    border-radius: 5px;
+    width: 260px;
+    background: $kb_card_bg;
+    padding: 10px 10px 0 10px;
+    min-height: 120px;
+    > span{
+        font-size: 12px;
+        color: $kb_card_label_font_color;
+        text-align: center;
+        padding: 0 12px;
+        display: inline-block;
+        line-height: 20px;
+        border-radius: 5px;
+        &[priority='0']{
+            background: $kb_card_label_low_bg;
+        }
+        &[priority='1']{
+            background: $kb_card_label_med_bg;
+        }
+        &[priority='2']{
+            background: $kb_card_label_high_bg;
+        }
+    }
+    > p{
+        font-size: 16px;
+        color: $kb_card_desc_font_color;
+        padding: 16px 0 14px 0;
+    }
+    > div{
+        display: flex;
+        justify-content: space-between;
+        > div:first-child{
+            line-height: 30px;
+            span{
+                color: $kb_card_footer_font_color;
+                font-size: 14px;
+                display: inline-block;
+                padding: 0 12px 0 0;
+                &:before{
+                    content: '';
+                    display: inline-block;
+                    -webkit-mask-size: contain;
+                    mask-size: contain;
+                    background-color: $kb_card_footer_icon_color;
+                    margin: 0 8px 0 0;
+                    position: relative;
+                    top: 2px;
+                }
+            }
+            > span[icon='comment']{
+                &:before{
+                    $icon: url(../icon/comment.svg);
+                    width: 12px;
+                    height: 12px;
+                    -webkit-mask-image: $icon;
+                    mask-image: $icon;
+                }
+            }
+            > span[icon='attachment']{
+                &:before{
+                    $icon: url(../icon/attachment.svg);
+                    width: 14px;
+                    height: 14px;
+                    -webkit-mask-image: $icon;
+                    mask-image: $icon;
+                    transform: rotate(-45deg);
+                    margin: 0 4px 0 0;
+                }
+            }
+        }
+        > div:last-child{
+            width: 70px;
+            > span{
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                display: block;
+                position: relative;
+                float: left;
+                &:before{
+                    content: '';
+                    display: block;
+                    -webkit-mask-size: contain;
+                    mask-size: contain;
+                    margin: auto;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                }
+                &:nth-child(odd){
+                    margin: 0 10px 10px 0;
+                }
+            }
+            > span[icon='addParticipant']{
+                background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 104 104'%3E%3Ccircle stroke-dasharray='6, 14.9' cx='52' cy='52' r='50' class='dotted' stroke-linecap='round' fill='transparent' stroke='%23CCCCD7' stroke-width='6'%3E%3C/circle%3E%3C/svg%3E"); //https://stackoverflow.com/questions/30087463/dotted-dashed-circle-shapes-using-css-not-rendering-right-in-chrome
+                &:before{
+                    $icon: url(../icon/add.svg);
+                    -webkit-mask-image: $icon;
+                    mask-image: $icon;
+                    background-color: $kb_card_footer_icon_color;
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+            > span[icon='participant']{
+                background: $kb_card_footer_icon_color;
+                &:before{
+                    $icon: url(../icon/person.svg);
+                    content: '';
+                    display: block;
+                    -webkit-mask-image: $icon;
+                    mask-image: $icon;
+                    background-color: white;
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+        }
+    }
+}

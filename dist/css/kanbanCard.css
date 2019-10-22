@@ -1,0 +1,115 @@
+* {
+  word-break: break-word;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: 100%;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin: 0;
+  padding: 0; }
+
+:host-context([type='placeholder']) {
+  background: repeating-linear-gradient(-45deg, #EAEAEC, #EAEAEC 6px, #F4F4F4 6px, #F4F4F4 12px);
+  border: 1px solid #EAEAEC; }
+
+:host-context([type='dragging']) {
+  border: 1px solid #DBDCE3; }
+
+:host {
+  display: block;
+  border-radius: 5px;
+  width: 260px;
+  background: #FFF;
+  padding: 10px 10px 0 10px;
+  min-height: 120px; }
+  :host > span {
+    font-size: 12px;
+    color: #FFF;
+    text-align: center;
+    padding: 0 12px;
+    display: inline-block;
+    line-height: 20px;
+    border-radius: 5px; }
+    :host > span[priority='0'] {
+      background: linear-gradient(134deg, #9EA7FC 0%, #0B7BD5 100%); }
+    :host > span[priority='1'] {
+      background: linear-gradient(-44deg, #81D5EE 0%, #7ED492 100%); }
+    :host > span[priority='2'] {
+      background: linear-gradient(133deg, #C781FF 0%, #E57373 100%); }
+  :host > p {
+    font-size: 16px;
+    color: #707090;
+    padding: 16px 0 14px 0; }
+  :host > div {
+    display: flex;
+    justify-content: space-between; }
+    :host > div > div:first-child {
+      line-height: 30px; }
+      :host > div > div:first-child span {
+        color: #9898AE;
+        font-size: 14px;
+        display: inline-block;
+        padding: 0 12px 0 0; }
+        :host > div > div:first-child span:before {
+          content: '';
+          display: inline-block;
+          -webkit-mask-size: contain;
+          mask-size: contain;
+          background-color: #CCCCD7;
+          margin: 0 8px 0 0;
+          position: relative;
+          top: 2px; }
+      :host > div > div:first-child > span[icon='comment']:before {
+        width: 12px;
+        height: 12px;
+        -webkit-mask-image: url(../icon/comment.svg);
+        mask-image: url(../icon/comment.svg); }
+      :host > div > div:first-child > span[icon='attachment']:before {
+        width: 14px;
+        height: 14px;
+        -webkit-mask-image: url(../icon/attachment.svg);
+        mask-image: url(../icon/attachment.svg);
+        transform: rotate(-45deg);
+        margin: 0 4px 0 0; }
+    :host > div > div:last-child {
+      width: 70px; }
+      :host > div > div:last-child > span {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: block;
+        position: relative;
+        float: left; }
+        :host > div > div:last-child > span:before {
+          content: '';
+          display: block;
+          -webkit-mask-size: contain;
+          mask-size: contain;
+          margin: auto;
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0; }
+        :host > div > div:last-child > span:nth-child(odd) {
+          margin: 0 10px 10px 0; }
+      :host > div > div:last-child > span[icon='addParticipant'] {
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 104 104'%3E%3Ccircle stroke-dasharray='6, 14.9' cx='52' cy='52' r='50' class='dotted' stroke-linecap='round' fill='transparent' stroke='%23CCCCD7' stroke-width='6'%3E%3C/circle%3E%3C/svg%3E"); }
+        :host > div > div:last-child > span[icon='addParticipant']:before {
+          -webkit-mask-image: url(../icon/add.svg);
+          mask-image: url(../icon/add.svg);
+          background-color: #CCCCD7;
+          width: 20px;
+          height: 20px; }
+      :host > div > div:last-child > span[icon='participant'] {
+        background: #CCCCD7; }
+        :host > div > div:last-child > span[icon='participant']:before {
+          content: '';
+          display: block;
+          -webkit-mask-image: url(../icon/person.svg);
+          mask-image: url(../icon/person.svg);
+          background-color: white;
+          width: 18px;
+          height: 18px; }
