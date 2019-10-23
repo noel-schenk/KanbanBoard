@@ -10,9 +10,25 @@
   margin: 0;
   padding: 0; }
 
+:host-context([type='remover']) {
+  min-height: auto;
+  transition: height 0.2s ease-in-out, padding 0.2s ease-in-out, margin 0.2s ease-in-out; }
+
+:host-context([type='remover'].animate) {
+  padding: 0;
+  margin: 0; }
+
 :host-context([type='placeholder']) {
   background: repeating-linear-gradient(-45deg, #EAEAEC, #EAEAEC 6px, #F4F4F4 6px, #F4F4F4 12px);
-  border: 1px solid #EAEAEC; }
+  border: 1px solid #EAEAEC;
+  height: 0;
+  min-height: 0;
+  transition: height 0.2s ease-in-out;
+  padding: 0;
+  margin: 0; }
+
+:host-context([type='placeholder'].animate) {
+  height: 120px; }
 
 :host-context([type='dragging']) {
   border: 1px solid #DBDCE3; }
